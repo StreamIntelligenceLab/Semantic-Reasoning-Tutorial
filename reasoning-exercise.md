@@ -37,7 +37,7 @@ SELECT ?patient ?name ?room ?humidity ?hvacStatus
 WHERE {                                                     
   ?patient a example:HighRiskPatient ;
            example:hasName ?name ;                                 
-           example:isLocatedIn ?room ;                             
+           example:locatedIn ?room ;                             
            example:hasAlarmCount ?alarmCount ;                     
            example:hasCallCount ?callCount .                       
   
@@ -45,7 +45,7 @@ WHERE {
         example:hasHumidity ?humidity ;                            
         example:hasHVACStatus ?hvacStatus .                        
   
-  FILTER (?humidity > 60)  # spec is 40-60%
+  FILTER (?humidity > 50)  
 }
 ORDER BY DESC(?alarmCount)
 ```
