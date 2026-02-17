@@ -31,10 +31,10 @@ mappings:
       - [a, example:$(room_type)~iri]
       - [example:hasRoomID, $(room_id)]
       - [example:hasZone, example:zone_$(zone)~iri]
-      - [example:hasCapacity, $(capacity)~xsd:integer]
-      - [example:hasTemperature, $(temperature_celsius)~xsd:decimal]
-      - [example:hasHumidity, $(humidity_percent)~xsd:integer]
+      - [example:hasCapacity, $(capacity),xsd:integer]
+      - [example:hasTemperature, $(temperature_celsius),xsd:decimal]
+      - [example:hasHumidity, $(humidity_percent),xsd:integer]
       - [example:hasHVACStatus, $(hvac_status)]
-      - [example:lastUpdatedMinutesAgo, $(last_update_minutes)~xsd:integer]
+      - [example:lastUpdatedMinutesAgo, $(last_update_minutes),xsd:integer]
 
 ```
