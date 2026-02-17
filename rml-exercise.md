@@ -33,7 +33,7 @@ MRN-7834525,Emma Janssens,88,ICU-3W-217,NURSE-103
 prefixes:
   example: http://www.example.com/
 mappings:
-  agency:
+  patients:
     sources:
       - [patients.csv~csv]
     s: example:patient_$(patient_mrn)
