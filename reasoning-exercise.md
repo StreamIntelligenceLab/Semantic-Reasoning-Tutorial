@@ -188,7 +188,7 @@ PREFIX example: <http://www.example.com/>
 SELECT ?patient ?room                              
 WHERE {                                                     
   ?patient a example:HighRiskPatient ;                            
-           example:locatedIn ?room ;                                                
+           example:locatedIn ?room .                                                
   
   ?room a example:HighRiskRoom.
 }
