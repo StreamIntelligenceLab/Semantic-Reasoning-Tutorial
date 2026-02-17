@@ -4,7 +4,7 @@
 
 For these exercises, you'll write SPARQL queries against the RDF data you generated in the RML mapping exercises.
 
-**Tool:** [SPARQL Playground](https://atomgraph.github.io/SPARQL-Playground/)
+**Tool:** [SPARQL Playground](https://atomgraph.github.io/SPARQL-Playground/) or [Kolibrie's UI](https://github.com/StreamIntelligenceLab/Kolibrie)
 
 **Goal:** Learn how to query integrated data across multiple sources using SPARQL, discovering insights that span patient and room information.
 
