@@ -20,235 +20,113 @@ First, we need to define our ontology with RDFS statements that describe the str
 ### ontology.ttl
 
 ```turtle
-@prefix example: <http://www.example.com/> .
-@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
-@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix owl: <http://www.w3.org/2002/07/owl#> .
+<http://www.example.com/Room> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://www.example.com/Room> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.example.com/Room> <http://www.w3.org/2000/01/rdf-schema#label> "Room" .
+<http://www.example.com/Room> <http://www.w3.org/2000/01/rdf-schema#comment> "A hospital room" .
 
-# ============================================
-# Class Hierarchy
-# ============================================
-
-# Base classes
-example:Room a rdfs:Class, owl:Class ;
-    rdfs:label "Room" ;
-    rdfs:comment "A hospital room" .
-
-example:Patient a rdfs:Class, owl:Class ;
-    rdfs:label "Patient" ;
-    rdfs:comment "A hospital patient" .
-
-example:Nurse a rdfs:Class, owl:Class ;
-    rdfs:label "Nurse" ;
-    rdfs:comment "A healthcare nurse" .
-
-# Room type hierarchy
-example:IsolationRoom a rdfs:Class, owl:Class ;
-    rdfs:label "Isolation Room" ;
-    rdfs:subClassOf example:Room ;
-    rdfs:comment "A room for infection control isolation" .
-
-example:AirborneIsolationRoom a rdfs:Class, owl:Class ;
-    rdfs:label "Airborne Isolation Room" ;
-    rdfs:subClassOf example:IsolationRoom ;
-    rdfs:comment "Negative pressure room for airborne infections" .
-
-example:ContactIsolationRoom a rdfs:Class, owl:Class ;
-    rdfs:label "Contact Isolation Room" ;
-    rdfs:subClassOf example:IsolationRoom ;
-    rdfs:comment "Room for contact-transmitted infections" .
-
-example:GeneralRoom a rdfs:Class, owl:Class ;
-    rdfs:label "General Room" ;
-    rdfs:subClassOf example:Room ;
-    rdfs:comment "Standard patient room" .
-
-# Patient risk hierarchy
-example:HighRiskPatient a rdfs:Class, owl:Class ;
-    rdfs:label "High Risk Patient" ;
-    rdfs:subClassOf example:Patient ;
-    rdfs:comment "Patient with elevated risk factors" .
-
-# ============================================
-# Property Domains and Ranges
-# ============================================
-
-# Patient properties
-example:hasFallRiskScore a rdf:Property ;
-    rdfs:label "has fall risk score" ;
-    rdfs:domain example:Patient ;
-    rdfs:range rdfs:Literal ;
-    rdfs:comment "Patient's fall risk score (0-100)" .
-
-example:hasName a rdf:Property ;
-    rdfs:label "has name" ;
-    rdfs:domain example:Patient ;
-    rdfs:range rdfs:Literal .
-
-example:hasID a rdf:Property ;
-    rdfs:label "has ID" ;
-    rdfs:domain example:Patient ;
-    rdfs:range rdfs:Literal .
-
-# Room properties
-example:hasHumidity a rdf:Property ;
-    rdfs:label "has humidity" ;
-    rdfs:domain example:Room ;
-    rdfs:range rdfs:Literal ;
-    rdfs:comment "Room humidity percentage" .
-
-example:hasTemperature a rdf:Property ;
-    rdfs:label "has temperature" ;
-    rdfs:domain example:Room ;
-    rdfs:range rdfs:Literal ;
-    rdfs:comment "Room temperature in Celsius" .
-
-example:hasCapacity a rdf:Property ;
-    rdfs:label "has capacity" ;
-    rdfs:domain example:Room ;
-    rdfs:range rdfs:Literal .
-
-example:hasRoomID a rdf:Property ;
-    rdfs:label "has room ID" ;
-    rdfs:domain example:Room ;
-    rdfs:range rdfs:Literal .
-
-# Relationships
-example:locatedIn a rdf:Property ;
-    rdfs:label "located in" ;
-    rdfs:domain example:Patient ;
-    rdfs:range example:Room ;
-    rdfs:comment "Patient is located in a room" .
-
-example:assignedTo a rdf:Property ;
-    rdfs:label "assigned to" ;
-    rdfs:domain example:Patient ;
-    rdfs:range example:Nurse ;
-    rdfs:comment "Patient is assigned to a nurse" .
-```
-
----
-
-## The Challenge: Querying with Class Hierarchies
-
-Consider our room type hierarchy:
-
-```
-Room
-├── IsolationRoom
-│   ├── AirborneIsolationRoom (e.g., ICU-3W-217)
-│   └── ContactIsolationRoom (e.g., ICU-3W-216)
-└── GeneralRoom (e.g., 3-WEST-214)
-```
-
-**Question:** "Find all patients in isolation rooms"
-
-This should include patients in:
-- Airborne isolation rooms (Emma)
-- Contact isolation rooms (Sophie)
-
----
-
-## Exercise 1: Query Without Reasoning
-
-### The Problem
-
-Without reasoning, the RDF data contains ONLY explicit statements:
-- `example:room_ICU-3W-217 a example:AirborneIsolationRoom`
-- `example:room_ICU-3W-216 a example:ContactIsolationRoom`
-
-There are NO explicit triples saying:
-- `example:room_ICU-3W-217 a example:IsolationRoom`
-- `example:room_ICU-3W-216 a example:IsolationRoom`
-
-### Your Task
-
-Write a SPARQL query to find all patients in isolation rooms **WITHOUT using reasoning**.
-
-### Starter Template
-
-```sparql
-PREFIX example: <http://www.example.com/>
-
-SELECT ?patientName ?roomID ?roomType
-WHERE {
-  ?patient a example:Patient ;
-           example:hasName ?patientName ;
-           example:locatedIn ?room .
+<http://www.example.com/Patient> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://www.example.com/Patient> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.example.com/Patient> <http://www.w3.org/2000/01/rdf-schema#label> "Patient" .
+<http://www.example.com/Patient> <http://www.w3.org/2000/01/rdf-schema#comment> "A hospital patient" .
   
-  ?room example:hasRoomID ?roomID ;
-        a ?roomType .
-  
-  # TODO: How do you check if the room is an IsolationRoom
-  #       when you only have explicit AirborneIsolationRoom 
-  #       and ContactIsolationRoom types?
-}
+<http://www.example.com/HighRiskPatient> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://www.example.com/HighRiskPatient> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.example.com/HighRiskPatient> <http://www.w3.org/2000/01/rdf-schema#label> "High Risk Patient" .
+<http://www.example.com/HighRiskPatient> <http://www.w3.org/2000/01/rdf-schema#subClassOf> <http://www.example.com/Patient> .
+<http://www.example.com/HighRiskPatient> <http://www.w3.org/2000/01/rdf-schema#comment> "Patient with elevated risk factors" .
+
+<http://www.example.com/Nurse> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2000/01/rdf-schema#Class> .
+<http://www.example.com/Nurse> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/2002/07/owl#Class> .
+<http://www.example.com/Nurse> <http://www.w3.org/2000/01/rdf-schema#label> "Nurse" .
+<http://www.example.com/Nurse> <http://www.w3.org/2000/01/rdf-schema#comment> "A healthcare nurse" .
+
+<http://www.example.com/locatedIn> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.example.com/locatedIn> <http://www.w3.org/2000/01/rdf-schema#label> "located in" .
+<http://www.example.com/locatedIn> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.example.com/Patient> .
+<http://www.example.com/locatedIn> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.example.com/Room> .
+<http://www.example.com/locatedIn> <http://www.w3.org/2000/01/rdf-schema#comment> "Patient is located in a room" .
+
+<http://www.example.com/assignedTo> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.w3.org/1999/02/22-rdf-syntax-ns#Property> .
+<http://www.example.com/assignedTo> <http://www.w3.org/2000/01/rdf-schema#label> "assigned to" .
+<http://www.example.com/assignedTo> <http://www.w3.org/2000/01/rdf-schema#domain> <http://www.example.com/Patient> .
+<http://www.example.com/assignedTo> <http://www.w3.org/2000/01/rdf-schema#range> <http://www.example.com/Nurse> .
+<http://www.example.com/assignedTo> <http://www.w3.org/2000/01/rdf-schema#comment> "Patient is assigned to a nurse" .
+
+<http://www.example.com/patient1> <http://www.example.com/assignedTo> <http://www.example.com/nurse1> .
+<http://www.example.com/patient2> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.example.com/HighRiskPatient> .  
+<http://www.example.com/patient3> <http://www.example.com/locatedIn> <http://www.example.com/room1> .
 ```
-
-### Hint
-
-You must explicitly list BOTH subclass types using `FILTER` or `VALUES`.
 
 ---
 
-## Exercise 2: Query With Reasoning
+## The Challenge: Querying with Class Hierarchies and domain/range definitions
+
+
+**Question:** "Find all patients"
+
+Note that there are no explicit patient definitions.
+
+
+---
+
+## Exercise: Query With Reasoning
 
 ### What the Reasoner Infers
 
-When RDFS reasoning is enabled, the reasoner automatically infers additional triples based on `rdfs:subClassOf` statements:
+When RDFS reasoning is enabled, the reasoner automatically infers additional triples based on rdfs:subClassOf and rdfs:domain / rdfs:range statements:
 
 **From the ontology:**
 ```turtle
-example:AirborneIsolationRoom rdfs:subClassOf example:IsolationRoom .
-example:ContactIsolationRoom rdfs:subClassOf example:IsolationRoom .
-example:IsolationRoom rdfs:subClassOf example:Room .
+example:HighRiskPatient rdfs:subClassOf example:Patient .
+
+example:assignedTo rdfs:domain example:Patient .
+example:assignedTo rdfs:range example:Nurse .
+
+example:locatedIn rdfs:domain example:Patient .
+example:locatedIn rdfs:range example:Room .
 ```
-
-**Reasoner infers:**
-```turtle
-# Since room_ICU-3W-217 is an AirborneIsolationRoom...
-example:room_ICU-3W-217 a example:AirborneIsolationRoom .  # explicit
-example:room_ICU-3W-217 a example:IsolationRoom .          # inferred!
-example:room_ICU-3W-217 a example:Room .                   # inferred!
-
-# Since room_ICU-3W-216 is a ContactIsolationRoom...
-example:room_ICU-3W-216 a example:ContactIsolationRoom .   # explicit
-example:room_ICU-3W-216 a example:IsolationRoom .          # inferred!
-example:room_ICU-3W-216 a example:Room .                   # inferred!
+And data:
+```
+example:patient1 example:assignedTo> example:nurse1 .
+example:patient2 a example:HighRiskPatient .  
+example:patient3 example:locatedIn example:room1 .
 ```
 
 ### Your Task
 
-Now write the same query **with reasoning enabled** (assuming your SPARQL endpoint supports RDFS entailment).
+Now write RDFS rules to support subClassOf, domain and range definitions.
+
 
 ```sparql
 PREFIX example: <http://www.example.com/>
 
-SELECT ?patientName ?roomID ?roomType
+SELECT *
 WHERE {
-  ?patient a example:Patient ;
-           example:hasName ?patientName ;
-           example:locatedIn ?room .
-  
-  ?room example:hasRoomID ?roomID ;
-        a example:IsolationRoom ;  # Simple! Just check for the parent class
-        a ?roomType .
-  
-  FILTER (?roomType != example:Room && ?roomType != example:IsolationRoom)
+  ?patient a example:Patient.
+}
+```
+Rules in Kolibrie follow the syntex:
+```sparql
+RULE :SomeRuleName:- 
+CONSTRUCT { 
+   ?s a :Head.
+
+}
+WHERE { 
+   ?s a :Body.
+}
+```
+As a starting point, the rule in Kolibrie syntax to write the subclassOf rule is
+```sparql
+RULE :RDFS9:- 
+CONSTRUCT { 
+   ?p a ?s.
+
+}
+WHERE { 
+   ?c <http://www.w3.org/2000/01/rdf-schema#subClassOf> ?s.
+   ?p <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?c .
 }
 ```
 
-### Compare the Queries
-
-**Without Reasoning:**
-```sparql
-FILTER (?roomType = example:AirborneIsolationRoom || 
-        ?roomType = example:ContactIsolationRoom)
-```
-
-**With Reasoning:**
-```sparql
-?room a example:IsolationRoom .
-```
-
-Much simpler! And if we add a NEW isolation type later (e.g., `RadiationIsolationRoom`), the query still works without modification.
