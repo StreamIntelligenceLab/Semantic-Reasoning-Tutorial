@@ -256,7 +256,7 @@ WHERE {
   ?patient a example:HighRiskPatient .
 }
 ```
-
+This should return 4 patients.
 
 ### Room Rules: Defining HighRiskRooms
 
@@ -276,6 +276,7 @@ WHERE {
   ?room a example:HighRiskRoom.
 }
 ```
+This should return 3 rooms.
 
 ### Combining everything
 
@@ -292,6 +293,6 @@ WHERE {
   ?room a example:HighRiskRoom.
 }
 ```
-
+This should return 2 results.
 
 
