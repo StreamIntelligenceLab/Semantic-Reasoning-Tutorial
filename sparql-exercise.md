@@ -18,6 +18,98 @@ Before starting these exercises, make sure you have:
 2. Generated RDF output from both patient and room data
 3. The RDF data loaded in the Matey tool (or another SPARQL endpoint)
 
+OR
+
+Use the following dataset:
+```
+<http://www.example.com/patient_MRN-7834521> <http://www.example.com/assignedTo> <http://www.example.com/nurse_NURSE-102> .
+<http://www.example.com/patient_MRN-7834521> <http://www.example.com/hasFallRiskScore> "85~xsd:integer" .
+<http://www.example.com/patient_MRN-7834521> <http://www.example.com/hasID> "MRN-7834521" .
+<http://www.example.com/patient_MRN-7834521> <http://www.example.com/hasName> "Maria Van den Berg" .
+<http://www.example.com/patient_MRN-7834521> <http://www.example.com/locatedIn> <http://www.example.com/room_3-WEST-214> .
+<http://www.example.com/patient_MRN-7834521> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.example.com/Patient> .
+<http://www.example.com/patient_MRN-7834522> <http://www.example.com/assignedTo> <http://www.example.com/nurse_NURSE-102> .
+<http://www.example.com/patient_MRN-7834522> <http://www.example.com/hasFallRiskScore> "45~xsd:integer" .
+<http://www.example.com/patient_MRN-7834522> <http://www.example.com/hasID> "MRN-7834522" .
+<http://www.example.com/patient_MRN-7834522> <http://www.example.com/hasName> "Jan Vermeulen" .
+<http://www.example.com/patient_MRN-7834522> <http://www.example.com/locatedIn> <http://www.example.com/room_3-WEST-215> .
+<http://www.example.com/patient_MRN-7834522> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.example.com/Patient> .
+<http://www.example.com/patient_MRN-7834523> <http://www.example.com/assignedTo> <http://www.example.com/nurse_NURSE-103> .
+<http://www.example.com/patient_MRN-7834523> <http://www.example.com/hasFallRiskScore> "92~xsd:integer" .
+<http://www.example.com/patient_MRN-7834523> <http://www.example.com/hasID> "MRN-7834523" .
+<http://www.example.com/patient_MRN-7834523> <http://www.example.com/hasName> "Sophie Dubois" .
+<http://www.example.com/patient_MRN-7834523> <http://www.example.com/locatedIn> <http://www.example.com/room_ICU-3W-216> .
+<http://www.example.com/patient_MRN-7834523> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.example.com/Patient> .
+<http://www.example.com/patient_MRN-7834524> <http://www.example.com/assignedTo> <http://www.example.com/nurse_NURSE-104> .
+<http://www.example.com/patient_MRN-7834524> <http://www.example.com/hasFallRiskScore> "38~xsd:integer" .
+<http://www.example.com/patient_MRN-7834524> <http://www.example.com/hasID> "MRN-7834524" .
+<http://www.example.com/patient_MRN-7834524> <http://www.example.com/hasName> "Lucas Peeters" .
+<http://www.example.com/patient_MRN-7834524> <http://www.example.com/locatedIn> <http://www.example.com/room_2-EAST-101> .
+<http://www.example.com/patient_MRN-7834524> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.example.com/Patient> .
+<http://www.example.com/patient_MRN-7834525> <http://www.example.com/assignedTo> <http://www.example.com/nurse_NURSE-103> .
+<http://www.example.com/patient_MRN-7834525> <http://www.example.com/hasFallRiskScore> "88~xsd:integer" .
+<http://www.example.com/patient_MRN-7834525> <http://www.example.com/hasID> "MRN-7834525" .
+<http://www.example.com/patient_MRN-7834525> <http://www.example.com/hasName> "Emma Janssens" .
+<http://www.example.com/patient_MRN-7834525> <http://www.example.com/locatedIn> <http://www.example.com/room_ICU-3W-217> .
+<http://www.example.com/patient_MRN-7834525> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.example.com/Patient> .
+<http://www.example.com/room_2-EAST-101> <http://www.example.com/hasCapacity> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.example.com/room_2-EAST-101> <http://www.example.com/hasHVACStatus> "operational" .
+<http://www.example.com/room_2-EAST-101> <http://www.example.com/hasHumidity> "60"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.example.com/room_2-EAST-101> <http://www.example.com/hasRoomID> "2-EAST-101" .
+<http://www.example.com/room_2-EAST-101> <http://www.example.com/hasTemperature> "21.2"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<http://www.example.com/room_2-EAST-101> <http://www.example.com/hasZone> <http://www.example.com/zone_2-EAST> .
+<http://www.example.com/room_2-EAST-101> <http://www.example.com/lastUpdatedMinutesAgo> "15"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.example.com/room_2-EAST-101> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.example.com/GeneralRoom> .
+<http://www.example.com/room_3-WEST-214> <http://www.example.com/hasCapacity> "2"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.example.com/room_3-WEST-214> <http://www.example.com/hasHVACStatus> "operational" .
+<http://www.example.com/room_3-WEST-214> <http://www.example.com/hasHumidity> "72"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.example.com/room_3-WEST-214> <http://www.example.com/hasRoomID> "3-WEST-214" .
+<http://www.example.com/room_3-WEST-214> <http://www.example.com/hasTemperature> "21.5"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<http://www.example.com/room_3-WEST-214> <http://www.example.com/hasZone> <http://www.example.com/zone_3-WEST> .
+<http://www.example.com/room_3-WEST-214> <http://www.example.com/lastUpdatedMinutesAgo> "15"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.example.com/room_3-WEST-214> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.example.com/GeneralRoom> .
+<http://www.example.com/room_3-WEST-215> <http://www.example.com/hasCapacity> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.example.com/room_3-WEST-215> <http://www.example.com/hasHVACStatus> "operational" .
+<http://www.example.com/room_3-WEST-215> <http://www.example.com/hasHumidity> "58"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.example.com/room_3-WEST-215> <http://www.example.com/hasRoomID> "3-WEST-215" .
+<http://www.example.com/room_3-WEST-215> <http://www.example.com/hasTemperature> "22.0"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<http://www.example.com/room_3-WEST-215> <http://www.example.com/hasZone> <http://www.example.com/zone_3-WEST> .
+<http://www.example.com/room_3-WEST-215> <http://www.example.com/lastUpdatedMinutesAgo> "15"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.example.com/room_3-WEST-215> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.example.com/GeneralRoom> .
+<http://www.example.com/room_3-WEST-220> <http://www.example.com/hasCapacity> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.example.com/room_3-WEST-220> <http://www.example.com/hasHVACStatus> "maintenance_required" .
+<http://www.example.com/room_3-WEST-220> <http://www.example.com/hasHumidity> "65"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.example.com/room_3-WEST-220> <http://www.example.com/hasRoomID> "3-WEST-220" .
+<http://www.example.com/room_3-WEST-220> <http://www.example.com/hasTemperature> "20.5"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<http://www.example.com/room_3-WEST-220> <http://www.example.com/hasZone> <http://www.example.com/zone_3-WEST> .
+<http://www.example.com/room_3-WEST-220> <http://www.example.com/lastUpdatedMinutesAgo> "120"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.example.com/room_3-WEST-220> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.example.com/AirborneIsolationRoom> .
+<http://www.example.com/room_ICU-3W-216> <http://www.example.com/hasCapacity> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.example.com/room_ICU-3W-216> <http://www.example.com/hasHVACStatus> "operational" .
+<http://www.example.com/room_ICU-3W-216> <http://www.example.com/hasHumidity> "55"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.example.com/room_ICU-3W-216> <http://www.example.com/hasRoomID> "ICU-3W-216" .
+<http://www.example.com/room_ICU-3W-216> <http://www.example.com/hasTemperature> "20.8"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<http://www.example.com/room_ICU-3W-216> <http://www.example.com/hasZone> <http://www.example.com/zone_ICU-3W> .
+<http://www.example.com/room_ICU-3W-216> <http://www.example.com/lastUpdatedMinutesAgo> "15"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.example.com/room_ICU-3W-216> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.example.com/ContactIsolationRoom> .
+<http://www.example.com/room_ICU-3W-217> <http://www.example.com/hasCapacity> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.example.com/room_ICU-3W-217> <http://www.example.com/hasHVACStatus> "operational" .
+<http://www.example.com/room_ICU-3W-217> <http://www.example.com/hasHumidity> "70"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.example.com/room_ICU-3W-217> <http://www.example.com/hasRoomID> "ICU-3W-217" .
+<http://www.example.com/room_ICU-3W-217> <http://www.example.com/hasTemperature> "21.0"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<http://www.example.com/room_ICU-3W-217> <http://www.example.com/hasZone> <http://www.example.com/zone_ICU-3W> .
+<http://www.example.com/room_ICU-3W-217> <http://www.example.com/lastUpdatedMinutesAgo> "15"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.example.com/room_ICU-3W-217> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.example.com/AirborneIsolationRoom> .
+<http://www.example.com/room_ICU-3W-218> <http://www.example.com/hasCapacity> "1"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.example.com/room_ICU-3W-218> <http://www.example.com/hasHVACStatus> "operational" .
+<http://www.example.com/room_ICU-3W-218> <http://www.example.com/hasHumidity> "62"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.example.com/room_ICU-3W-218> <http://www.example.com/hasRoomID> "ICU-3W-218" .
+<http://www.example.com/room_ICU-3W-218> <http://www.example.com/hasTemperature> "21.8"^^<http://www.w3.org/2001/XMLSchema#decimal> .
+<http://www.example.com/room_ICU-3W-218> <http://www.example.com/hasZone> <http://www.example.com/zone_ICU-3W> .
+<http://www.example.com/room_ICU-3W-218> <http://www.example.com/lastUpdatedMinutesAgo> "15"^^<http://www.w3.org/2001/XMLSchema#integer> .
+<http://www.example.com/room_ICU-3W-218> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.example.com/GeneralRoom> .
+```
+
 ---
 
 ## Background: The Data
