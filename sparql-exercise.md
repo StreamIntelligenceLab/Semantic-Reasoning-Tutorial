@@ -142,7 +142,7 @@ PREFIX example: <http://www.example.com/>
 
 SELECT ?patient ?name ?riskScore
 WHERE {
-  # TODO: Add your triple patterns here
+  ?patient a example:Patient.
 }
 ```
 
