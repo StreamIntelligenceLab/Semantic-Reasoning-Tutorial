@@ -128,17 +128,14 @@ PREFIX example: <http://www.example.com/>
 
 SELECT ?patientName ?riskScore ?roomID ?humidity
 WHERE {
-  # Patient information
   ?patient a example:Patient ;
            example:hasName ?patientName ;
            example:hasFallRiskScore ?riskScore ;
            example:locatedIn ?room .
   
-  # Room information
   ?room example:hasRoomID ?roomID ;
         example:hasHumidity ?humidity .
   
-  # Filters for high fall risk and high humidity
   FILTER (?riskScore > 80)
   FILTER (?humidity > 60)
 }
