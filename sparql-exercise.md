@@ -23,31 +23,31 @@ OR
 Use the following dataset:
 ```
 <http://www.example.com/patient_MRN-7834521> <http://www.example.com/assignedTo> <http://www.example.com/nurse_NURSE-102> .
-<http://www.example.com/patient_MRN-7834521> <http://www.example.com/hasFallRiskScore> "85~xsd:integer" .
+<http://www.example.com/patient_MRN-7834521> <http://www.example.com/hasFallRiskScore> "85"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://www.example.com/patient_MRN-7834521> <http://www.example.com/hasID> "MRN-7834521" .
 <http://www.example.com/patient_MRN-7834521> <http://www.example.com/hasName> "Maria Van den Berg" .
 <http://www.example.com/patient_MRN-7834521> <http://www.example.com/locatedIn> <http://www.example.com/room_3-WEST-214> .
 <http://www.example.com/patient_MRN-7834521> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.example.com/Patient> .
 <http://www.example.com/patient_MRN-7834522> <http://www.example.com/assignedTo> <http://www.example.com/nurse_NURSE-102> .
-<http://www.example.com/patient_MRN-7834522> <http://www.example.com/hasFallRiskScore> "45~xsd:integer" .
+<http://www.example.com/patient_MRN-7834522> <http://www.example.com/hasFallRiskScore> "45"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://www.example.com/patient_MRN-7834522> <http://www.example.com/hasID> "MRN-7834522" .
 <http://www.example.com/patient_MRN-7834522> <http://www.example.com/hasName> "Jan Vermeulen" .
 <http://www.example.com/patient_MRN-7834522> <http://www.example.com/locatedIn> <http://www.example.com/room_3-WEST-215> .
 <http://www.example.com/patient_MRN-7834522> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.example.com/Patient> .
 <http://www.example.com/patient_MRN-7834523> <http://www.example.com/assignedTo> <http://www.example.com/nurse_NURSE-103> .
-<http://www.example.com/patient_MRN-7834523> <http://www.example.com/hasFallRiskScore> "92~xsd:integer" .
+<http://www.example.com/patient_MRN-7834523> <http://www.example.com/hasFallRiskScore> "92"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://www.example.com/patient_MRN-7834523> <http://www.example.com/hasID> "MRN-7834523" .
 <http://www.example.com/patient_MRN-7834523> <http://www.example.com/hasName> "Sophie Dubois" .
 <http://www.example.com/patient_MRN-7834523> <http://www.example.com/locatedIn> <http://www.example.com/room_ICU-3W-216> .
 <http://www.example.com/patient_MRN-7834523> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.example.com/Patient> .
 <http://www.example.com/patient_MRN-7834524> <http://www.example.com/assignedTo> <http://www.example.com/nurse_NURSE-104> .
-<http://www.example.com/patient_MRN-7834524> <http://www.example.com/hasFallRiskScore> "38~xsd:integer" .
+<http://www.example.com/patient_MRN-7834524> <http://www.example.com/hasFallRiskScore> "38"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://www.example.com/patient_MRN-7834524> <http://www.example.com/hasID> "MRN-7834524" .
 <http://www.example.com/patient_MRN-7834524> <http://www.example.com/hasName> "Lucas Peeters" .
 <http://www.example.com/patient_MRN-7834524> <http://www.example.com/locatedIn> <http://www.example.com/room_2-EAST-101> .
 <http://www.example.com/patient_MRN-7834524> <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> <http://www.example.com/Patient> .
 <http://www.example.com/patient_MRN-7834525> <http://www.example.com/assignedTo> <http://www.example.com/nurse_NURSE-103> .
-<http://www.example.com/patient_MRN-7834525> <http://www.example.com/hasFallRiskScore> "88~xsd:integer" .
+<http://www.example.com/patient_MRN-7834525> <http://www.example.com/hasFallRiskScore> "88"^^<http://www.w3.org/2001/XMLSchema#integer> .
 <http://www.example.com/patient_MRN-7834525> <http://www.example.com/hasID> "MRN-7834525" .
 <http://www.example.com/patient_MRN-7834525> <http://www.example.com/hasName> "Emma Janssens" .
 <http://www.example.com/patient_MRN-7834525> <http://www.example.com/locatedIn> <http://www.example.com/room_ICU-3W-217> .
