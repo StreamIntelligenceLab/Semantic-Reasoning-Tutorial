@@ -195,11 +195,9 @@ WHERE {
   ?patient a example:Patient ;
            example:hasName ?patientName ;
            example:locatedIn ?room .
-  
-  # TODO: Add triple patterns for room information
 }
 ```
-
+ TODO: Add triple patterns for room information
 ### Hints
 
 - The patient is already linked to the room via `example:locatedIn`
