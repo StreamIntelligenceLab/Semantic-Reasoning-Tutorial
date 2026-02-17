@@ -189,7 +189,7 @@ Modify your mappings to specify proper data types for numeric values:
 
 Example:
 ```yaml
-- [example:hasCapacity, $(capacity)~xsd:integer]
+- [example:hasCapacity, $(capacity), xsd:integer]
 ```
 
 ---
@@ -205,19 +205,7 @@ Example:
 
 ---
 
-## Learning Objectives
 
-By completing these exercises, you should be able to:
-
-✓ Read and understand YARRRML syntax  
-✓ Add new properties to existing RML mappings  
-✓ Work with multiple data sources in a single RML configuration  
-✓ Create IRIs (URIs) from data values  
-✓ Specify data types for literals  
-✓ Understand how mappings from different sources connect via shared IRIs  
-✓ Validate your RDF output against your source data  
-
----
 
 ## Tips
 
