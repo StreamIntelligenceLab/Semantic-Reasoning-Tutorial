@@ -79,29 +79,6 @@ WHERE {
         example:hasTemperature ?temperature ;
         example:hasHumidity ?humidity ;
         a ?roomType .
-  
-  # Filter out the generic Room class, only show specific types
-  FILTER (?roomType != example:Room)
-}
-```
-
-### Alternative Solution (Without Filter)
-
-If you want to see all room types including the generic Room class:
-
-```sparql
-PREFIX example: <http://www.example.com/>
-
-SELECT ?patientName ?roomID ?roomType ?temperature ?humidity
-WHERE {
-  ?patient a example:Patient ;
-           example:hasName ?patientName ;
-           example:locatedIn ?room .
-  
-  ?room example:hasRoomID ?roomID ;
-        example:hasTemperature ?temperature ;
-        example:hasHumidity ?humidity ;
-        a ?roomType .
 }
 ```
 
