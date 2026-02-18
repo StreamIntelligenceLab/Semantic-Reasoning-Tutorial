@@ -88,7 +88,7 @@ example:locatedIn rdfs:range example:Room .
 ```
 And data:
 ```
-example:patient1 example:assignedTo> example:nurse1 .
+example:patient1 example:assignedTo example:nurse1 .
 example:patient2 a example:HighRiskPatient .  
 example:patient3 example:locatedIn example:room1 .
 ```
