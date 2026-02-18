@@ -17,7 +17,7 @@ mappings:
       - [a, example:Patient]
       - [example:hasID, $(patient_mrn)]
       - [example:hasName, $(patient_name)]
-      - [example:hasFallRiskScore, $(fall_risk_score)~xsd:integer]
+      - [example:hasFallRiskScore, $(fall_risk_score),xsd:integer]
       - [example:locatedIn, example:room_$(room_location)~iri]
       - [example:assignedTo, example:nurse_$(assigned_nurse_id)~iri]
   
