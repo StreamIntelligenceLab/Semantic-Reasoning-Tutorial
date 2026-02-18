@@ -133,12 +133,12 @@ WHERE {
 
 | Premise | |
 |---|---|
-| `aaa rdfs:domain zzz .` | |
-| `uuu aaa yyy .` | |
+| `ppp <http://www.w3.org/2000/01/rdf-schema#domain> zzz .` | |
+| `uuu ppp yyy .` | |
 
 | Conclusion | |
 |---|---|
-| `uuu rdf:type zzz .` | |
+| `uuu a zzz .` | |
 
 **In plain English:** if a property has a declared domain, then any subject that uses that property is inferred to be an instance of that domain class.
 
@@ -162,12 +162,12 @@ ex:patient1 rdf:type ex:Patient .   # via rdfs2
 
 | Premise | |
 |---|---|
-| `aaa rdfs:range zzz .` | |
-| `uuu aaa vvv .` | |
+| `ppp <http://www.w3.org/2000/01/rdf-schema#range> zzz .` | |
+| `uuu ppp vvv .` | |
 
 | Conclusion | |
 |---|---|
-| `vvv rdf:type zzz .` | |
+| `vvv a zzz .` | |
 
 **In plain English:** if a property has a declared range, then any object that appears as the value of that property is inferred to be an instance of that range class.
 
