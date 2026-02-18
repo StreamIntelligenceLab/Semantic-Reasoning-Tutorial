@@ -116,7 +116,6 @@ WHERE {
   FILTER (?riskScore > 80)
   FILTER (?humidity > 60)
 }
-ORDER BY DESC(?riskScore)
 ```
 
 ### Expected Output
