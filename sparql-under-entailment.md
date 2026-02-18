@@ -129,4 +129,62 @@ WHERE {
    ?p <http://www.w3.org/1999/02/22-rdf-syntax-ns#type> ?c .
 }
 ```
+## RDFS Rule 2 — `rdfs:domain`
+
+| Premise | |
+|---|---|
+| `aaa rdfs:domain zzz .` | |
+| `uuu aaa yyy .` | |
+
+| Conclusion | |
+|---|---|
+| `uuu rdf:type zzz .` | |
+
+**In plain English:** if a property has a declared domain, then any subject that uses that property is inferred to be an instance of that domain class.
+
+### Example
+
+```turtle
+ex:located_in rdfs:domain ex:Patient .
+
+ex:patient1 ex:located_in ex:room1 .
+```
+
+Inferred:
+
+```turtle
+ex:patient1 rdf:type ex:Patient .   # via rdfs2
+```
+
+---
+
+## RDFS Rule 3 — `rdfs:range`
+
+| Premise | |
+|---|---|
+| `aaa rdfs:range zzz .` | |
+| `uuu aaa vvv .` | |
+
+| Conclusion | |
+|---|---|
+| `vvv rdf:type zzz .` | |
+
+**In plain English:** if a property has a declared range, then any object that appears as the value of that property is inferred to be an instance of that range class.
+
+### Example
+
+```turtle
+ex:located_in rdfs:range ex:Room .
+
+ex:patient1 ex:located_in ex:room1 .
+```
+
+Inferred:
+
+```turtle
+ex:room1 rdf:type ex:Room .         # via rdfs3
+```
+
+---
+
 
