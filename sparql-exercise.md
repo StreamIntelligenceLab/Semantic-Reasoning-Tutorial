@@ -250,7 +250,6 @@ WHERE {
   # TODO: Filter for high fall risk (> 80)
   # TODO: Filter for high humidity (> 60)
 }
-ORDER BY DESC(?riskScore)
 ```
 
 ### Expected Output
